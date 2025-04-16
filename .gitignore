@@ -1,0 +1,17 @@
+# Python cache ve derleme dosyaları
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Çalışma ortamı dosyaları
+.env
+*.env
+
+# IDE ve sistem dosyaları
+.vscode/
+*.log
+.DS_Store
+Thumbs.db
+
+# Streamlit cache dosyaları
+.streamlit/
