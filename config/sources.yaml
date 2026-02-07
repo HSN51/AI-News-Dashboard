@@ -1,0 +1,100 @@
+# NewsIntel - News Sources Configuration
+# ========================================
+# Configure your news sources and API credentials here.
+# Make sure to set API keys in environment variables, not in this file.
+
+settings:
+  default_language: "en"
+  default_max_articles: 10
+  request_timeout: 30  # seconds
+  cache_ttl: 3600  # seconds
+
+sources:
+  - name: "NewsAPI"
+    type: "api"
+    base_url: "https://newsapi.org/v2"
+    enabled: true
+    priority: 10
+    api_key_env: "NEWSAPI_KEY"
+    endpoints:
+      top_headlines: "/top-headlines"
+      everything: "/everything"
+    rate_limit:
+      requests_per_minute: 100
+      
+  - name: "GDELT Project"
+    type: "api"
+    base_url: "https://api.gdeltproject.org/api/v2"
+    enabled: true
+    priority: 8
+    api_key_env: null  # No API key required
+    endpoints:
+      doc_search: "/doc/doc"
+      geo_search: "/geo/geo"
+      
+  - name: "TechCrunch"
+    type: "rss"
+    feed_url: "https://techcrunch.com/feed/"
+    enabled: true
+    priority: 7
+    categories:
+      - "artificial-intelligence"
+      - "startups"
+      
+  - name: "Hacker News"
+    type: "api"
+    base_url: "https://hacker-news.firebaseio.com/v0"
+    enabled: true
+    priority: 6
+    api_key_env: null
+
+  - name: "Reddit"
+    type: "api"
+    base_url: "https://oauth.reddit.com"
+    enabled: false
+    priority: 5
+    api_key_env: "REDDIT_CLIENT_SECRET"
+    subreddits:
+      - "artificial"
+      - "machinelearning"
+      - "technology"
+
+# Topic Categories for filtering
+categories:
+  ai_ml:
+    keywords:
+      - "artificial intelligence"
+      - "machine learning"
+      - "deep learning"
+      - "neural network"
+      - "LLM"
+      - "GPT"
+      
+  robotics:
+    keywords:
+      - "robotics"
+      - "automation"
+      - "autonomous"
+      - "drones"
+      
+  cloud:
+    keywords:
+      - "cloud computing"
+      - "AWS"
+      - "Azure"
+      - "GCP"
+      - "kubernetes"
+
+# Analysis Configuration
+analysis:
+  sentiment:
+    model: "default"  # Options: default, transformers, openai
+    confidence_threshold: 0.7
+    
+  topics:
+    num_topics: 5
+    min_topic_frequency: 2
+    
+  summarization:
+    max_length: 150
+    model: "default"

@@ -1,17 +1,52 @@
-# Python cache ve derleme dosyaları
+# Python
 __pycache__/
 *.py[cod]
-*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
 
-# Çalışma ortamı dosyaları
+# Virtual env
+.venv/
+venv/
+ENV/
+env/
+
+# dotenv
 .env
-*.env
+.env.*
 
-# IDE ve sistem dosyaları
-.vscode/
+# Logs
 *.log
+
+# OS
 .DS_Store
 Thumbs.db
 
-# Streamlit cache dosyaları
-.streamlit/
+# Editors / IDE
+.vscode/
+.idea/
+*.iml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Reports / outputs
+reports/
+output/
+*.pdf
+
+# Coverage / tests
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+
+# Node (if ever used)
+node_modules/
